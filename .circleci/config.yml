@@ -19,7 +19,7 @@ jobs:
       - checkout
       - run:
           name: Terraform Output
-          command:  terraform apply -var="region=${TF_VAR_region}"
+          command:  terraform apply -var="region=${TF_VAR_region}" --auto-approve
 
 workflows:
   version: 2
