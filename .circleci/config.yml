@@ -19,7 +19,7 @@ jobs:
       - checkout
       - run:
           name: Terraform Output
-          command:  read -p "Variable1=" variable1
+          command:  echo ${name}
 
 workflows:
   version: 2
