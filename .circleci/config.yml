@@ -9,8 +9,7 @@ jobs:
       - checkout
       - run:
           name: Terraform Init
-          command: |
-            terraform init
+          command: terraform init
   
   # terraform_plan:
   #   docker:
