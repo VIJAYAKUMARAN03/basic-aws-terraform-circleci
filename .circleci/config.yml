@@ -20,10 +20,16 @@ jobs:
       - run:
           name: Terraform Output
           command:  |
-            if [ ${a} == 1 ] 
-            then 
-            echo "a is equal to b"
-            fi
+            case "$ENV" in 
+            #case 1 
+            "dev") echo "DEV ENVIRONMENT" ;; 
+      
+            #case 2 
+            "prod") echo "PROD ENVIRONMENT" ;; 
+      
+            #case 3 
+            "qa") echo "QA ENVIRONMENT" ;; 
+            esac 
 
 workflows:
   version: 2
