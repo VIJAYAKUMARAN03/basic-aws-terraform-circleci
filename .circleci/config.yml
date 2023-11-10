@@ -10,16 +10,6 @@ jobs:
       - run:
           name: Terraform Init
           command: terraform init
-  
-  terraform_plan:
-    docker:
-      - image: hashicorp/terraform:latest
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - run:
-          name: Terraform Plan
-          command: terraform plan
 
   terraform_output:
     docker:
@@ -29,10 +19,8 @@ jobs:
       - checkout
       - run:
         name : Deploying
-        command : |
+        command : 
           echo "Please enter the required input:"
-          # read -p "REGION:" var_region
-          # terraform output -var="region=${var_region}"
 
 workflows:
   version: 2
