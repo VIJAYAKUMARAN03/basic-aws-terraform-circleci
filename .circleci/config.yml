@@ -19,7 +19,7 @@ jobs:
       - checkout
       - run:
           name: Terraform Output
-          command: terraform output -var="region=new"
+          command:  read -p "Variable1:" variable1
 
 workflows:
   version: 2
