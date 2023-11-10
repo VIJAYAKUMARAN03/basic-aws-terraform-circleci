@@ -1,0 +1,20 @@
+version: 2.1
+
+jobs:
+  terraform_apply:
+    docker:
+      - image: hashicorp/terraform:latest
+    working_directory: /repo
+    steps:
+      - checkout
+      - run:
+          name: Terraform Apply
+          command: |
+            terraform init
+            terraform apply -auto-approve
+
+workflows:
+  version: 2
+  apply:
+    jobs:
+      - terraform_apply
