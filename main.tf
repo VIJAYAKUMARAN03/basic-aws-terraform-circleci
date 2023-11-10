@@ -1,13 +1,19 @@
-provider "aws" {
-  region = "us-east-1"
-  access_key = ""
-  secret_key = ""
+
+output "newvar" {
+  value = var.region
 }
 
-resource "aws_instance" "my_first_instance" {
-    ami = var.ami
-    instance_type = var.instance_type
-}
+
+# provider "aws" {
+#   region = "us-east-1"
+#   access_key = ""
+#   secret_key = ""
+# }
+
+# resource "aws_instance" "my_first_instance" {
+#     ami = var.ami
+#     instance_type = var.instance_type
+# }
 
 # resource "aws_instance" "my_first_instance" {
 #     ami = "ami-0fc5d935ebf8bc3bc"

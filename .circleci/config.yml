@@ -4,7 +4,7 @@ jobs:
   terraform_init:
     docker:
       - image: hashicorp/terraform:latest
-    working_directory: /Sample-terraform
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
@@ -14,12 +14,22 @@ jobs:
   terraform_plan:
     docker:
       - image: hashicorp/terraform:latest
-    working_directory: /repo
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
           name: Terraform Plan
           command: terraform plan
+
+  terraform_plan:
+    docker:
+      - image: hashicorp/terraform:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Terraform Plan
+          command: terraform output
 
 workflows:
   version: 2
