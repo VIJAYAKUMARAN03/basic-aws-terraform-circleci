@@ -22,13 +22,13 @@ jobs:
           command:  |
             case "$ENV" in 
             #case 1 
-            "dev") echo "DEV ENVIRONMENT" ;; 
+            "dev") terraform apply -var="region=${ENV}" ;; 
       
             #case 2 
-            "prod") echo "PROD ENVIRONMENT" ;; 
+            "prod") terraform apply -var="region=${ENV}";; 
       
             #case 3 
-            "qa") echo "QA ENVIRONMENT" ;; 
+            "qa") terraform apply -var="region=${ENV}" ;; 
             esac 
 
 workflows:
