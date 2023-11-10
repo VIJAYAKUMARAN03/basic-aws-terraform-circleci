@@ -31,8 +31,8 @@ jobs:
         name : Deploying
         command : |
           echo "Please enter the required input:"
-          read -p "REGION:" var_region
-          terraform output -var="regoion=${var_region}"
+          # read -p "REGION:" var_region
+          # terraform output -var="region=${var_region}"
 
 workflows:
   version: 2
