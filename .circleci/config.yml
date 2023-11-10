@@ -11,17 +11,6 @@ jobs:
           name: Terraform Init
           command: terraform init
 
-  terraform_output:
-    docker:
-      - image: hashicorp/terraform:latest
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - run:
-        name : Deploying
-        command : 
-          echo "Please enter the required input:"
-
 workflows:
   version: 2
   Init-Plan:
