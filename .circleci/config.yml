@@ -21,7 +21,7 @@ jobs:
           name: Terraform Plan
           command: terraform plan
 
-  terraform_plan:
+  terraform_output:
     docker:
       - image: hashicorp/terraform:latest
     working_directory: ~/repo
@@ -37,6 +37,6 @@ workflows:
     jobs:
       - terraform_init
 
-      - terraform_plan:
+      - terraform_output:
             requires: 
               - terraform_init
