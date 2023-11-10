@@ -9,7 +9,6 @@ output "newvar" {
 #   access_key = ""
 #   secret_key = ""
 # }
-
 # resource "aws_instance" "my_first_instance" {
 #     ami = var.ami
 #     instance_type = var.instance_type
