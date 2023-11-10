@@ -28,8 +28,12 @@ jobs:
     steps:
       - checkout
       - run:
+        name : Deploying
+        command : |
+          echo "Please enter the required input:"
+          read -p "REGION:" var_region
           name: Terraform Plan
-          command: terraform output
+          command: terraform output -var="regoion=${var_region}"
 
 workflows:
   version: 2

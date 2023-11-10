@@ -1,6 +1,6 @@
 
 output "newvar" {
-  value = var.region
+  value = "${var.region}"
 }
 
 
