@@ -11,19 +11,21 @@ jobs:
           name: Terraform Init
           command: terraform init
   
-  # terraform_plan:
-  #   docker:
-  #     - image: hashicorp/terraform:latest
-  #   working_directory: /repo
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Terraform Plan
-  #         command: |
-  #           terraform apply -auto-approve
+  terraform_plan:
+    docker:
+      - image: hashicorp/terraform:latest
+    working_directory: /repo
+    steps:
+      - checkout
+      - run:
+          name: Terraform Plan
+          command: terraform plan
 
 workflows:
   version: 2
   Init:
     jobs:
       - terraform_init
+
+      - terraform_plan:
+            requires: terraform_init
