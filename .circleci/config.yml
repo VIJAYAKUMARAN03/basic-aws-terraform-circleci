@@ -28,4 +28,5 @@ workflows:
       - terraform_init
 
       - terraform_plan:
-            requires: - terraform_init
+            requires: 
+              - terraform_init
