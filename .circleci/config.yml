@@ -25,6 +25,6 @@ jobs:
 
 workflows:
   version: 2
-  apply:
+  Init:
     jobs:
       - terraform_init
