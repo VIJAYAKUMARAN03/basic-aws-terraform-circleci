@@ -19,7 +19,7 @@ jobs:
       - checkout
       - run:
           name: Terraform Output
-          command:  echo ${name}
+          command:  echo ${TF_VAR_region}
 
 workflows:
   version: 2
