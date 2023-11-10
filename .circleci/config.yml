@@ -27,7 +27,3 @@ workflows:
   Init-Plan:
     jobs:
       - terraform_init
-
-      - terraform_output:
-            requires: 
-              - terraform_init
