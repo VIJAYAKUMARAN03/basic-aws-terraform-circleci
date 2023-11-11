@@ -3,7 +3,6 @@ variable "provider1" {
   type = string
   default     = "aws"
 }
-
 variable "region" {
   description = "AWS region"
   type = string
