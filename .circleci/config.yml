@@ -20,11 +20,11 @@ jobs:
       - run:
           name: Terraform Output
           command:  |
-            terraform apply -var-file="${ENV}.tfvars" --auto-approve
             if [${ENV} == prod]
             then
             echo "prod"
             fi
+            terraform apply -var-file="${ENV}.tfvars" --auto-approve
 workflows:
   version: 2 
   Init-Apply-Output:
