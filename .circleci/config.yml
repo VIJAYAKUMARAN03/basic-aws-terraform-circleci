@@ -21,6 +21,7 @@ jobs:
           name: Terraform Output
           command: 
             terraform apply -var-file="${ENV}.tfvars" --auto-approve
+
 workflows:
   version: 2 
   Init-Apply-Output:
@@ -29,3 +30,6 @@ workflows:
       - terraform_output :
           requires : 
             - terraform_init
+          filters:
+             branches:
+                only: master
