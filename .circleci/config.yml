@@ -23,7 +23,7 @@ jobs:
             terraform apply -var-file="${ENV}.tfvars" --auto-approve
             if [${ENV} == prod]
             then
-            echo prod
+            echo "prod"
             fi
 workflows:
   version: 2 
