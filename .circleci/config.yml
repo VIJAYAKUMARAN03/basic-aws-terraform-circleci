@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Terraform Output
           command:  |
-            if [${ENV} == prod]
+            if [${ENV} == "prod"]
             then
             echo "prod"
             fi
