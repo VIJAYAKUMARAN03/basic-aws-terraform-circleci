@@ -22,17 +22,17 @@ jobs:
           command:  |
             case "$ENV" in 
             #case 1 
-            "dev") terraform apply -var="region=${ENV}" ;; 
+            "dev") terraform apply -var="region=${ENV}" --auto-approve;; 
       
             #case 2 
-            "prod") terraform apply -var="region=${ENV}";; 
+            "prod") terraform apply -var="region=${ENV}" --auto-approve;; 
       
             #case 3 
-            "qa") terraform apply -var="region=${ENV}" ;; 
+            "qa") terraform apply -var="region=${ENV}" --auto-approve;; 
             esac 
 
 workflows:
-  version: 2
+  version: 2 
   Init-Plan:
     jobs:
       - terraform_init
