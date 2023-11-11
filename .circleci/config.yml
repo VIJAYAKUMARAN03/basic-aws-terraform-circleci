@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Terraform Output
           command:  
-            terraform apply -var-file"${ENV}.tfvars" --auto-approve
+            terraform apply -var-file="${ENV}.tfvars" --auto-approve
 
 workflows:
   version: 2 
