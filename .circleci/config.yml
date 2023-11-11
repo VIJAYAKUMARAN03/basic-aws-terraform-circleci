@@ -24,7 +24,7 @@ jobs:
 
 workflows:
   version: 2 
-  Init-Plan:
+  Init-Apply-Output-${ENV}:
     jobs:
       - terraform_init
       - terraform_output :
