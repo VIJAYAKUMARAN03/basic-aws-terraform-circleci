@@ -19,12 +19,15 @@ jobs:
       - checkout
       - run:
           name: Terraform Output
-          command:  
+          command:  |
             terraform apply -var-file="${ENV}.tfvars" --auto-approve
-
+            if [${ENV} == prod]
+            then
+            echo prod
+            fi
 workflows:
   version: 2 
-  Init-Apply-Output-${ENV}:
+  Init-Apply-Output:
     jobs:
       - terraform_init
       - terraform_output :
