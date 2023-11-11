@@ -1,8 +1,17 @@
 
-output "newvar" {
-  value = "${var.region}"
+output "provider" {
+  value = "${var.provider1}"
 }
 
+output "region" {
+  value = "${var.region}"
+}
+output "instance_type" {
+  value = "${var.instance_type}"
+}
+output "environment" {
+  value = "${var.environment}"
+}
 
 # provider "aws" {
 #   region = "us-east-1"

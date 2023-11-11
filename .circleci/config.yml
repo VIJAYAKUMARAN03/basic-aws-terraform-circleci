@@ -19,17 +19,8 @@ jobs:
       - checkout
       - run:
           name: Terraform Output
-          command:  |
-            case "$ENV" in 
-            #case 1 
-            "dev") terraform apply -var="region=${ENV}" --auto-approve;; 
-      
-            #case 2 
-            "prod") terraform apply -var="region=${ENV}" --auto-approve;; 
-      
-            #case 3 
-            "qa") terraform apply -var="region=${ENV}" --auto-approve;; 
-            esac 
+          command:  
+            terraform apply -var-file"${ENV}.tfvars" --auto-approve
 
 workflows:
   version: 2 
