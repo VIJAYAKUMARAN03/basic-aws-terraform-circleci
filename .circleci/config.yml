@@ -32,4 +32,4 @@ workflows:
             - terraform_init
           filters:
              branches:
-                only: master
+                only: main
