@@ -12,14 +12,25 @@ jobs:
           command: 
               terraform init
 
-  terraform_output:
+terraform_plan:
     docker:
       - image: hashicorp/terraform:latest
     working_directory: ~/repo
     steps:
       - checkout
       - run:
-          name: Terraform Output
+          name: Terraform Plan
+          command: 
+            terraform plan
+
+  terraform_apply_output:
+    docker:
+      - image: hashicorp/terraform:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Terraform Apply & Output
           command: 
             terraform apply -var-file="${ENV}.tfvars" --auto-approve
 workflows:
@@ -27,9 +38,12 @@ workflows:
   Init-Apply-Output:
     jobs:
       - terraform_init
-      - terraform_output :
-          requires : 
+      - terraform_plan:
+        requires : 
             - terraform_init
+      - terraform_apply_output :
+          requires : 
+            - terraform_plan
           filters:
              branches:
                 only: main

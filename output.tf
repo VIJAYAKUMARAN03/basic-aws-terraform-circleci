@@ -7,3 +7,6 @@ output "instance_type" {
 output "environment" {
   value = "${var.environment}"
 }
+output "ami" {
+  value = "${var.ami}"
+}
