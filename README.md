@@ -1,4 +1,4 @@
-# Sample-terraform
+## Sample-terraform
 Step : 1
 Pull the code into your and then set this code as local repo
 Step : 2
