@@ -12,16 +12,16 @@ jobs:
           command: 
               terraform init
 
-terraform_plan:
-    docker:
-      - image: hashicorp/terraform:latest
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - run:
-          name: Terraform Plan
-          command: 
-            terraform plan
+  terraform_plan:
+      docker:
+        - image: hashicorp/terraform:latest
+      working_directory: ~/repo
+      steps:
+        - checkout
+        - run:
+            name: Terraform Plan
+            command: 
+              terraform plan
 
   terraform_apply_output:
     docker:
