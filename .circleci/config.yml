@@ -9,8 +9,8 @@ jobs:
       - checkout
       - run:
           name: Terraform Init
-          command: |
-          export TF_VAR_region = new_region
+          command: 
+              terraform init
 
   terraform_output:
     docker:
