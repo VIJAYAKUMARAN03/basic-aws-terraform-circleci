@@ -20,7 +20,8 @@ jobs:
         - checkout
         - run:
             name: Terraform Plan
-            command: 
+            command: |
+              terraform init
               terraform plan
 
   terraform_apply_output:
