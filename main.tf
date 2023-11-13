@@ -7,12 +7,13 @@ output "region" {
   value = "${var.region}"
 }
 output "instance_type" {
-  value = "${var.instance_type}"
+  value = "${var.instance_type}" 
 }
 output "environment" {
   value = "${var.environment}"
 }
 
+#
 # provider "aws" {
 #   region = "us-east-1"
 #   access_key = ""
