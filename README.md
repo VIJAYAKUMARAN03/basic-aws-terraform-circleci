@@ -10,8 +10,12 @@
 - TF_VAR_access_key = (value of your aws access key)
 - TF_VAR_secret_key = (value of your aws secret key)
 - ENV = value of anyone of 3 (dev or prod or qa) used for changing the terraform code dynamically.
-#### Important Note : Environment variable name should be as it is as above mentioned.
+#### Important Note : Environment variable name should be as it is as above mentioned(case sensitive).
 ## Step : 5 
-### From local give git push. 
+### Pull your newly created repo.
+## Step : 6
+### Then add the files from this repo(my repo) to your repo.
+## Step : 7
+### And then give git add, commit and push to your repo. 
 
-### Then you can see the pipeline output in the circleci.
+### Then you can see the pipeline output in the circleci in the project's dashboard session.
