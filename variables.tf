@@ -18,3 +18,9 @@ variable "environment" {
   type = string
   default     = "not specified"
 }
+
+variable "check_environment" {
+  description = "check_environment"
+  type = string
+  default     = "not specified"
+}

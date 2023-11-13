@@ -13,6 +13,10 @@ output "environment" {
   value = "${var.environment}"
 }
 
+output "check_environment" {
+  value = "${var.check_environment}"
+}
+
 #
 # provider "aws" {
 #   region = "us-east-1"
