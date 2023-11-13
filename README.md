@@ -10,7 +10,7 @@
 - TF_VAR_access_key = (value of your aws access key)
 - TF_VAR_secret_key = (value of your aws secret key)
 - ENV = value of anyone of 3 (dev or prod or qa) used for changing the terraform code dynamically.
-#### Important Note : Environment varible name should be as it is as above mentioned.
+#### Important Note : Environment variable name should be as it is as above mentioned.
 ## Step : 5 
 ### From local give git push. 
 
