@@ -39,7 +39,7 @@ workflows:
     jobs:
       - terraform_init
       - terraform_plan:
-        requires : 
+          requires : 
             - terraform_init
       - terraform_apply_output :
           requires : 
