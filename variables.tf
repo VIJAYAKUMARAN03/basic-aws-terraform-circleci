@@ -1,17 +1,19 @@
-variable "provider1" {
-  description = "Provider"
-  type = string
-  default     = "aws"
-}
 variable "region" {
   description = "AWS region"
   type = string
+  default     = "us-east-1"
+}
+
+variable "ami" {
+  description = "AMI"
+  type = string
   default     = "not specified"
 }
+
 variable "instance_type" {
   description = "instance_type"
   type = string
-  default     = "not specified"
+  default     = "t2.micro"
 }
 variable "environment" {
   description = "environment"
@@ -19,8 +21,14 @@ variable "environment" {
   default     = "not specified"
 }
 
-variable "check_environment" {
-  description = "check_environment"
+variable "access_key" {
+  description = "access_key"
+  type = string
+  default     = "not specified"
+}
+
+variable "secret_key" {
+  description = "secret_key"
   type = string
   default     = "not specified"
 }

@@ -1,32 +1,20 @@
 
-output "provider" {
-  value = "${var.provider1}"
-}
-
-output "region" {
-  value = "${var.region}"
-}
-output "instance_type" {
-  value = "${var.instance_type}" 
-}
-output "environment" {
-  value = "${var.environment}"
-}
-
-output "check_environment" {
-  value = "${var.check_environment}"
-}
+# output "provider" {
+#   value = "${var.provider1}"
+# }
 
 #
+
 # provider "aws" {
-#   region = "us-east-1"
-#   access_key = ""
-#   secret_key = ""
+#   region = "${var.region}"
+#   access_key = "${var.access_key}"
+#   secret_key = "${var.secret_key}"
 # }
 # resource "aws_instance" "my_first_instance" {
-#     ami = var.ami
+#     ami = "${var.ami}"
 #     instance_type = var.instance_type
 # }
+
 
 # resource "aws_instance" "my_first_instance" {
 #     ami = "ami-0fc5d935ebf8bc3bc"
