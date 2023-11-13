@@ -9,7 +9,9 @@ jobs:
       - checkout
       - run:
           name: Terraform Init
-          command: terraform init
+          command: |
+          set TF_VAR_region = new_region
+          terraform init
 
   terraform_output:
     docker:
@@ -20,8 +22,8 @@ jobs:
       - run:
           name: Terraform Output
           command: 
-            terraform apply -var-file="${ENV}.tfvars" --auto-approve
-
+            terraform apply --auto-approve
+#-var-file="${ENV}.tfvars"
 workflows:
   version: 2 
   Init-Apply-Output:
