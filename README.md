@@ -12,3 +12,5 @@
 - ENV = value of anyone of 3 (dev or prod or qa)
 ## Step : 5 
 ### From local give git push. 
+
+Then you can see the pipeline outpu in the circleci.
