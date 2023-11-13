@@ -9,7 +9,7 @@
 ### Set the environment varibles for the project as,
 - TF_VAR_access_key = (value of your aws access key)
 - TF_VAR_secret_key = (value of your aws secret key)
-- ENV = value of anyone of 3 (dev or prod or qa)
+- ENV = value of anyone of 3 (dev or prod or qa) used for changing the terraform code dynamically.
 ## Step : 5 
 ### From local give git push. 
 
