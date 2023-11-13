@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Terraform Init
           command: |
-          set TF_VAR_region = new_region
+          export TF_VAR_region = new_region
           terraform init
 
   terraform_output:
