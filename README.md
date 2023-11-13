@@ -13,4 +13,4 @@
 ## Step : 5 
 ### From local give git push. 
 
-Then you can see the pipeline outpu in the circleci.
+### Then you can see the pipeline output in the circleci.
