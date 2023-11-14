@@ -7,9 +7,10 @@ provider "aws" {
 resource "aws_instance" "my_first_instance" {
     ami = "${var.ami}"
     instance_type = var.instance_type
+    tags = {
+      Name = "vijay_instance"
+    }
 }
-
-
 
 
 
