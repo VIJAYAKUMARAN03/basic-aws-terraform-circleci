@@ -34,7 +34,9 @@ jobs:
           name: Terraform Apply & Output
           command: |
             terraform init
-            terraform apply -var-file="${ENV}.tfvars" --auto-approve
+            terraform apply
+
+# -var-file="${ENV}.tfvars" --auto-approve
 workflows:
   version: 2 
   Init-Apply-Output:
