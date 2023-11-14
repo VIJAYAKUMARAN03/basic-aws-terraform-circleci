@@ -4,14 +4,14 @@ provider "aws" {
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
 }
-resource "aws_instance" "first_instance" {
-    ami = "ami-05c13eab67c5d8861"
-    instance_type = "${var.instance_type}"
-    subnet_id = "subnet-057a3368013cab5fb"
-    tags = {
-      "Name" = "vijay_instance_"
-    }
-}
+# resource "aws_instance" "first_instance" {
+#     ami = "ami-05c13eab67c5d8861"
+#     instance_type = "${var.instance_type}"
+#     subnet_id = "subnet-057a3368013cab5fb"
+#     tags = {
+#       "Name" = "vijay_instance_"
+#     }
+# }
 
 
 
