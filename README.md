@@ -29,4 +29,3 @@
 ### And then give git add, commit and push to your repo. 
 
 ### Then you can see the pipeline output in the circleci in the project's dashboard session.
-
