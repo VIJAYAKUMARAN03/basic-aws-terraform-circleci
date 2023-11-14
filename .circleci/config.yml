@@ -32,7 +32,8 @@ jobs:
       - checkout
       - run:
           name: Terraform Apply & Output
-          command: 
+          command: |
+            terraform init
             terraform apply -var-file="${ENV}.tfvars" --auto-approve
 workflows:
   version: 2 
