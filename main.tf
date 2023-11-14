@@ -5,7 +5,7 @@ provider "aws" {
   secret_key = "${var.secret_key}"
 }
 resource "aws_instance" "first_instance" {
-    ami = "${var.ami}"
+    ami = "ami-05c13eab67c5d8861"
     instance_type = "${var.instance_type}"
     subnet_id = "subnet-057a3368013cab5fb"
     tags = {
