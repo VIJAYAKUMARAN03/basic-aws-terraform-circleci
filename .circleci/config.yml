@@ -42,9 +42,9 @@ workflows:
       - terraform_plan:
           requires : 
             - terraform_init
-      - terraform_apply_output :
-          requires : 
-            - terraform_plan
-          filters:
-             branches:
-                only: main
+      # - terraform_apply_output :
+      #     requires : 
+      #       - terraform_plan
+      #     filters:
+      #        branches:
+      #           only: main
