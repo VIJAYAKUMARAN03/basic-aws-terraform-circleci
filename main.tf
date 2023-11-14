@@ -7,6 +7,7 @@ provider "aws" {
 resource "aws_instance" "first_instance" {
     ami = "${var.ami}"
     instance_type = "${var.instance_type}"
+    subnet_id = "subnet-057a3368013cab5fb"
     tags = {
       "Name" = "vijay_instance_"
     }
