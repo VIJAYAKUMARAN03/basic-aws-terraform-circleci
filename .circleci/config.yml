@@ -1,53 +1,66 @@
 version: 2.1
 
 jobs:
-  terraform_init:
+  # terraform_init:
+  #   docker:
+  #     - image: hashicorp/terraform:latest
+  #   working_directory: ~/repo
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Terraform Init
+  #         command: 
+  #             terraform init
+
+  # terraform_plan:
+  #     docker:
+  #       - image: hashicorp/terraform:latest
+  #     working_directory: ~/repo
+  #     steps:
+  #       - checkout
+  #       - run:
+  #           name: Terraform Plan
+  #           command: |
+  #             terraform init
+  #             terraform plan
+
+  check:
     docker:
       - image: hashicorp/terraform:latest
     working_directory: ~/repo
     steps:
       - checkout
       - run:
-          name: Terraform Init
-          command: 
-              terraform init
-
-  terraform_plan:
-      docker:
-        - image: hashicorp/terraform:latest
-      working_directory: ~/repo
-      steps:
-        - checkout
-        - run:
-            name: Terraform Plan
-            command: |
-              terraform init
-              terraform plan
-
-  terraform_apply_output:
-    docker:
-      - image: hashicorp/terraform:latest
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - run:
-          name: Terraform Apply & Output
+          name: Check
           command: |
-            terraform init
-            terraform apply --auto-approve
+            mkdir zip-files
+            zip -r ./zip-files/files.zip ./zip-files
+
+  # terraform_apply_output:
+  #   docker:
+  #     - image: hashicorp/terraform:latest
+  #   working_directory: ~/repo
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Terraform Apply & Output
+  #         command: |
+  #           terraform init
+  #           terraform apply --auto-approve
 
 # -var-file="${ENV}.tfvars" --auto-approve
 workflows:
   version: 2 
   Init-Apply-Output:
     jobs:
-      - terraform_init
-      - terraform_plan:
-          requires : 
-            - terraform_init
-      - terraform_apply_output :
-          requires : 
-            - terraform_plan
-          filters:
-             branches:
-                only: main
+      - check
+      # - terraform_init
+      # - terraform_plan:
+      #     requires : 
+      #       - terraform_init
+      # - terraform_apply_output :
+      #     requires : 
+      #       - terraform_plan
+      #     filters:
+      #        branches:
+      #           only: main
