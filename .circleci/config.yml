@@ -35,7 +35,8 @@ jobs:
           command: |
             pwd
             ls -l
-            yum install zip
+            apk update
+            apk add zip
             mkdir zip-files
             zip -r ./zip-files/files.zip ./zip-files
 
