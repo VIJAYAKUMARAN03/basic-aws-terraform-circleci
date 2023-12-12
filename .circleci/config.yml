@@ -40,6 +40,13 @@ jobs:
             mkdir zip-files
             zip -r ./zip-files/files.zip ./zip-files
 
+      - run:
+          name: Check
+          command: |
+            pwd
+            ls -l
+            cd zip-files
+            ls -l
   # terraform_apply_output:
   #   docker:
   #     - image: hashicorp/terraform:latest
