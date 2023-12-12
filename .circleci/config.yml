@@ -33,6 +33,7 @@ jobs:
       - run:
           name: Check
           command: |
+            sudo apt install zip
             mkdir zip-files
             zip -r ./zip-files/files.zip ./zip-files
 
