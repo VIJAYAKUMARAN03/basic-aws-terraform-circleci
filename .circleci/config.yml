@@ -40,11 +40,11 @@ jobs:
             else
             echo "sh_re=us1" >> $BASH_ENV 
             fi
-            echo "Short region is ${sh_re}"
+            echo ${sh_re}
       - run:
           name: Display
           command: |
-            echo "Short region is ${sh_re}"
+            echo ${sh_re}
 workflows:
   Deploy-Lambda-func-S3:
     jobs:
