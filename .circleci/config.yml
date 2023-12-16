@@ -35,7 +35,7 @@ jobs:
       - run:
           name: Adding zip files to Zip Directory
           command: |
-            cd zips
+            cd /zip-files/zips
             ls
 workflows:
   Deploy-Lambda-func-S3:
