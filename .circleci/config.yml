@@ -31,7 +31,7 @@ jobs:
           command: |
             cd zip-files
             unzip zips.zip
-            ls
+            ls -a
       - run:
           name: Adding zip files to Zip Directory
           command: |
