@@ -41,10 +41,12 @@ jobs:
             export sh_re="us1"
             fi
             echo "Short region is ${sh_re}"
+          environment:
+            short : $sh_re
       - run:
           name: Display
           command: |
-            echo "Short region is ${sh_re}"
+            echo "Short region is ${sh_re}  ${short}"
 workflows:
   Deploy-Lambda-func-S3:
     jobs:
