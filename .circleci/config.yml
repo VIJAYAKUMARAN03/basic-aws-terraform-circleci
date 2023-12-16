@@ -35,7 +35,11 @@ jobs:
       - run:
           name: Adding zip files to Zip Directory
           command: |
+            if [[ $ENV == "ap-south-1" ]]; then
             export sh_re="ap1"
+            else
+            export sh_re="us1"
+            fi
             echo $sh_re
 workflows:
   Deploy-Lambda-func-S3:
