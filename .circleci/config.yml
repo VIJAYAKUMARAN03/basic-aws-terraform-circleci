@@ -35,8 +35,8 @@ jobs:
       - run:
           name: Adding zip files to Zip Directory
           command: |
-            cd /zip-files/zips
-            ls
+            export sh-re = "ap1"
+            echo $sh-re
 workflows:
   Deploy-Lambda-func-S3:
     jobs:
