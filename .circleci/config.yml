@@ -1,77 +1,139 @@
-version: 2.1
-
-jobs:
-  # terraform_init:
-  #   docker:
-  #     - image: hashicorp/terraform:latest
-  #   working_directory: ~/repo
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Terraform Init
-  #         command: 
-  #             terraform init
-
-  # terraform_plan:
-  #     docker:
-  #       - image: hashicorp/terraform:latest
-  #     working_directory: ~/repo
-  #     steps:
-  #       - checkout
-  #       - run:
-  #           name: Terraform Plan
-  #           command: |
-  #             terraform init
-  #             terraform plan
-
-  check:
+version: "2.1"
+orbs:
+  aws-cli: circleci/aws-cli@4.0
+  aws-s3: circleci/aws-s3@4.0
+  python: circleci/python@1.5.0
+jobs:    
+  Deploy-Lambda-functions:
     docker:
-      - image: hashicorp/terraform:latest
+      - image: python:3.8
     working_directory: ~/repo
     steps:
-      - checkout
+      - checkout   
+      
+      - aws-cli/setup:
+          aws_access_key_id: aws_access_key
+          aws_secret_access_key: aws_secret_key
+          region: region
       - run:
-          name: Check
+          name: Installing Zip
           command: |
-            pwd
-            ls -l
             apk update
             apk add zip
-            mkdir zip-files
-            zip -r ./zip-files/files.zip ./zip-files
-
       - run:
-          name: Check
+          name: Creating a Directory for Zip files
           command: |
-            pwd
-            ls -l
-            cd zip-files
-            ls -l
-  # terraform_apply_output:
-  #   docker:
-  #     - image: hashicorp/terraform:latest
-  #   working_directory: ~/repo
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Terraform Apply & Output
-  #         command: |
-  #           terraform init
-  #           terraform apply --auto-approve
+            cd Rapport_1.0/aws_data_pipelines/lambda
+            mkdir zip-files
+      - run:
+          name: Adding zip files to Zip Directory
+          command: |
+            cd Rapport_1.0/aws_data_pipelines/lambda
+            zip -r ./zip-files/GetCustomerData.zip ./GetCustomerData
+            zip -r ./zip-files/GenerateOfferScript.zip ./GenerateOfferScript
+            zip -r ./zip-files/S3CustomerDataTrigger.zip ./S3CustomerDataTrigger
+            zip -r ./zip-files/SendEmailNotification.zip ./SendEmailNotification
 
-# -var-file="${ENV}.tfvars" --auto-approve
+          
 workflows:
-  version: 2 
-  Init-Apply-Output:
+  Deploy-Lambda-func-S3:
     jobs:
-      - check
-      # - terraform_init
-      # - terraform_plan:
-      #     requires : 
-      #       - terraform_init
-      # - terraform_apply_output :
-      #     requires : 
-      #       - terraform_plan
-      #     filters:
-      #        branches:
-      #           only: main
+      - Deploy-Lambda-functions:
+          filters:
+            branches:
+              only: main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: 2.1
+
+# jobs:
+#   # terraform_init:
+#   #   docker:
+#   #     - image: hashicorp/terraform:latest
+#   #   working_directory: ~/repo
+#   #   steps:
+#   #     - checkout
+#   #     - run:
+#   #         name: Terraform Init
+#   #         command: 
+#   #             terraform init
+
+#   # terraform_plan:
+#   #     docker:
+#   #       - image: hashicorp/terraform:latest
+#   #     working_directory: ~/repo
+#   #     steps:
+#   #       - checkout
+#   #       - run:
+#   #           name: Terraform Plan
+#   #           command: |
+#   #             terraform init
+#   #             terraform plan
+
+#   check:
+#     docker:
+#       - image: hashicorp/terraform:latest
+#     working_directory: ~/repo
+#     steps:
+#       - checkout
+#       - run:
+#           name: Check
+#           command: |
+#             pwd
+#             ls -l
+#             apk update
+#             apk add zip
+#             mkdir zip-files
+#             zip -r ./zip-files/files.zip ./zip-files
+
+#       - run:
+#           name: Check
+#           command: |
+#             pwd
+#             ls -l
+#             cd zip-files
+#             ls -l
+#   # terraform_apply_output:
+#   #   docker:
+#   #     - image: hashicorp/terraform:latest
+#   #   working_directory: ~/repo
+#   #   steps:
+#   #     - checkout
+#   #     - run:
+#   #         name: Terraform Apply & Output
+#   #         command: |
+#   #           terraform init
+#   #           terraform apply --auto-approve
+
+# # -var-file="${ENV}.tfvars" --auto-approve
+# workflows:
+#   version: 2 
+#   Init-Apply-Output:
+#     jobs:
+#       - check
+#       # - terraform_init
+#       # - terraform_plan:
+#       #     requires : 
+#       #       - terraform_init
+#       # - terraform_apply_output :
+#       #     requires : 
+#       #       - terraform_plan
+#       #     filters:
+#       #        branches:
+#       #           only: main
