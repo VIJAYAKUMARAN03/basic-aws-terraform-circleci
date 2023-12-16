@@ -25,11 +25,8 @@ jobs:
       - run:
           name: Adding zip files to Zip Directory
           command: |
-            cd Rapport_1.0/aws_data_pipelines/lambda
-            zip -r ./zip-files/GetCustomerData.zip ./GetCustomerData
-            zip -r ./zip-files/GenerateOfferScript.zip ./GenerateOfferScript
-            zip -r ./zip-files/S3CustomerDataTrigger.zip ./S3CustomerDataTrigger
-            zip -r ./zip-files/SendEmailNotification.zip ./SendEmailNotification
+            zip -r ./zips.zip ./.circleci
+            ls
 
           
 workflows:
