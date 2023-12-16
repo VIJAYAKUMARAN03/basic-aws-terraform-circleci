@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Adding zip files to Zip Directory
           command: |
-            zip -r ./zip-files/zips.zip ./.circleci
+            zip -r ./zip-files/zips.zip ./.circleci/*
             ls
       - run:
           name: Adding zip files to Zip Directory
