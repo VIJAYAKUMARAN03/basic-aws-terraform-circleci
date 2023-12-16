@@ -14,8 +14,9 @@ jobs:
       - run:
           name: Installing Zip
           command: |
-            apk update
-            apk add zip
+            RUN apt-get update && apt-get install -y tini
+          # apk update
+          # apk add zip
       - run:
           name: Creating a Directory for Zip files
           command: |
