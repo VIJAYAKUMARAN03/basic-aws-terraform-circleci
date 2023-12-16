@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Installing Zip
           command: |
-            RUN apt-get update && apt-get install -y tini
+            apt-get update && apt-get install -y tini
           # apk update
           # apk add zip
       - run:
