@@ -20,15 +20,22 @@ jobs:
       - run:
           name: Creating a Directory for Zip files
           command: |
-            cd Rapport_1.0/aws_data_pipelines/lambda
             mkdir zip-files
       - run:
           name: Adding zip files to Zip Directory
           command: |
             zip -r ./zips.zip ./.circleci
             ls
-
-          
+      - run:
+          name: Adding zip files to Zip Directory
+          command: |
+            unzip -r zips.zip
+            ls
+      - run:
+          name: Adding zip files to Zip Directory
+          command: |
+            cd zips
+            ls
 workflows:
   Deploy-Lambda-func-S3:
     jobs:
