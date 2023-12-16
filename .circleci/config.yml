@@ -36,17 +36,15 @@ jobs:
           name: Adding zip files to Zip Directory
           command: |
             if [[ $ENV == "ap-south-1" ]]; then
-            export sh_re="ap1"
+            echo "sh_re=us1" >> $BASH_ENV
             else
-            export sh_re="us1"
+            echo "sh_re=us1" >> $BASH_ENV 
             fi
             echo "Short region is ${sh_re}"
-          environment:
-            short : $sh_re
       - run:
           name: Display
           command: |
-            echo "Short region is ${sh_re}  ${short}"
+            echo "Short region is ${sh_re}"
 workflows:
   Deploy-Lambda-func-S3:
     jobs:
