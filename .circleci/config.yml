@@ -3,55 +3,25 @@ orbs:
   aws-cli: circleci/aws-cli@4.0
   aws-s3: circleci/aws-s3@4.0
   python: circleci/python@1.5.0
-jobs:    
-  Deploy-Lambda-functions:
+
+jobs:
+  Branch:
     docker:
       - image: python:3.8
+    environment:
+      BRANCH_NAME: $[replace(variables['Build.SourceBranch'], 'refs/heads/', '')]
     working_directory: ~/repo
     steps:
       - checkout   
-      
       - run:
-          name: Installing Zip
+          name: Install Build Dependencies
           command: |
-            apt-get update && apt-get install zip
-          # apk update
-          # apk add zip
-      - run:
-          name: Creating a Directory for Zip files
-          command: |
-            mkdir zip-files
-      - run:
-          name: Adding zip files to Zip Directory
-          command: |
-            zip -r ./zip-files/zips.zip ./.circleci/*
-            ls
-      - run:
-          name: Adding zip files to Zip Directory
-          command: |
-            cd zip-files
-            unzip zips.zip
-            ls -a
-      - run:
-          name: Adding zip files to Zip Directory
-          command: |
-            if [[ $ENV == "ap-south-1" ]]; then
-            echo "sh_re=us1" >> $BASH_ENV
-            else
-            echo "sh_re=us1" >> $BASH_ENV 
-            fi
-            echo ${sh_re}
-      - run:
-          name: Display
-          command: |
-            echo ${sh_re}
+            echo BRANCH_NAME
+
 workflows:
-  Deploy-Lambda-func-S3:
+  Branch-Name:
     jobs:
-      - Deploy-Lambda-functions:
-          filters:
-            branches:
-              only: main
+      - Branch
 
 
 
