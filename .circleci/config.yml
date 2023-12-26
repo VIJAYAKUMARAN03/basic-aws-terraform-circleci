@@ -8,16 +8,21 @@ jobs:
   Branch:
     docker:
       - image: python:3.8
-    
+    variables:
+        BRANCH_NAME: $(Build.SourceBranchName)
     working_directory: ~/repo
     steps:
       - checkout
-      variables:
-        BRANCH_NAME: $[replace(variables['Build.SourceBranch'], 'refs/heads/', '')]
+      
       - run:
           name: Branch Name
           command: |
             echo $(BRANCH_NAME)
+
+      - run:
+          name: Branch Name
+          command: |
+            echo $(Build.SourceBranchName)
 
 workflows:
   Branch-Name:
