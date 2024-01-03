@@ -8,16 +8,15 @@ jobs:
   Branch:
     docker:
       - image: python:3.8
-    environment:
-      BRANCH_NAME: $(Build.SourceBranchName)
     working_directory: ~/repo
     steps:
       - checkout
-      
       - run:
-          name: Branch Name
+          name: Python
           command: |
-            echo $CIRCLE_BRANCH
+            python &
+            print("Hi")
+            print("Bye")
 
       - run:
           name: Branch Name
