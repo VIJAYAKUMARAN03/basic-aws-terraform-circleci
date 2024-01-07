@@ -15,9 +15,12 @@ jobs:
           name: Python
           command: |
             echo $pip
-            echo "export pipeline_ids=$(echo $pip | jq -r '.items[] | {"id": .id, "revision": .vcs.revision}' )" >> "$BASH_ENV"
-            source "$BASH_ENV"
-            echo $pipeline_ids
+            echo $workflow
+            echo "hello"
+            echo "$workflow"
+            # echo "export pipeline_ids=$(echo $pip | jq -r '.items[] | {"id": .id, "revision": .vcs.revision}' )" >> "$BASH_ENV"
+            # source "$BASH_ENV"
+            # echo $pipeline_ids
             
       - run:
           name: Branch Name
