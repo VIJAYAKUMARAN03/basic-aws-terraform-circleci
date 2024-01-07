@@ -29,6 +29,7 @@ jobs:
           command: |
             echo $workflow
             echo $pip
+            echo "hi"
 
 workflows:
   Branch-Name:
