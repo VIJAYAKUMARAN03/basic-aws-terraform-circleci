@@ -15,7 +15,7 @@ jobs:
           name: Python
           command: |
             echo $(git rev-parse HEAD)
-            
+            echo << pipeline.git.revision >>
       - run:
           name: Branch Name
           command: |
