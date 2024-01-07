@@ -14,14 +14,20 @@ jobs:
       - run:
           name: Python
           command: |
-            python &&
-            print("Hi")
-            print("Bye")
+            pipeline_ids=$(echo $pip | jq -r '.items[] | {"id": .id, "revision": .vcs.revision}' )
+            echo $pipeline_ids
+            
+      - run:
+          name: Branch Name
+          command: |
+            result=$(echo $workflow | jq -r '.items[] | select(.status == "success")')
+            echo $result
 
       - run:
           name: Branch Name
           command: |
-            echo $(Build.SourceBranchName)
+            echo $workflow
+            echo $pip
 
 workflows:
   Branch-Name:
