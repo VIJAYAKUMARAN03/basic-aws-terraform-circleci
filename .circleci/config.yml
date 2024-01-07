@@ -14,6 +14,7 @@ jobs:
       - run:
           name: Python
           command: |
+            echo $pip
             echo "export pipeline_ids=$(echo $pip | jq -r '.items[] | {"id": .id, "revision": .vcs.revision}' )" >> "$BASH_ENV"
             source "$BASH_ENV"
             echo $pipeline_ids
