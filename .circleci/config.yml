@@ -25,6 +25,8 @@ jobs:
       - run:
           name: Branch Name
           command: |
+            apt-get update
+            apt-get install -y jq
             result=$(echo $workflow | jq -r '.items[] | select(.status == "success")')
             echo $result
 
