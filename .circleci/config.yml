@@ -32,7 +32,7 @@ jobs:
             echo "hi"
 
 workflows:
-  Branch-Name-$ENV:
+  Branch-Name-<<pipeline.git.revision>>:
     jobs:
       - Branch
 
