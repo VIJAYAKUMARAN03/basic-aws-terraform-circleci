@@ -24,8 +24,8 @@ Follow the steps below to set up Terraform and CircleCI integration for managing
 Clone the repository containing the Terraform code to your local environment and set it as your local repository.
 
 ```bash
-git clone <repository_url>
-cd <repository_directory>
+git clone https://github.com/VIJAYAKUMARAN03/basic-aws-terraform-circleci.git
+cd basic-aws-terraform-circleci
 ```
 
 ## Step 2 : Create a New Repository
