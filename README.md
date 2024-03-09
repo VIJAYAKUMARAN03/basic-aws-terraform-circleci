@@ -14,6 +14,7 @@ Before getting started, ensure you have the following:
 - Git installed on your local machine.
 - A Git hosting service account (e.g., GitHub, GitLab) to host your Terraform code.
 - A CircleCI account to set up continuous integration for your project.
+- Important : Create a s3 bucket in AWS which is used to store the backend states of terraform.
 
 ## Getting Started
 
