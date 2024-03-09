@@ -15,20 +15,9 @@ variable "instance_type" {
   type = string
   default     = "t2.micro"
 }
+
 variable "environment" {
   description = "environment"
   type = string
   default     = "not specified"
-}
-
-variable "access_key" {
-  description = "access_key"
-  type = string
-  default     = ""
-}
-
-variable "secret_key" {
-  description = "secret_key"
-  type = string
-  default     = ""
 }
