@@ -26,6 +26,11 @@ Clone the repository containing the Terraform code to your local environment and
 
 ```bash
 git clone https://github.com/VIJAYAKUMARAN03/basic-aws-terraform-circleci.git
+```
+
+Navigate to the cloned directory:
+
+```bash
 cd basic-aws-terraform-circleci
 ```
 
