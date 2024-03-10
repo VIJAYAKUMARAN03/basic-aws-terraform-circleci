@@ -65,11 +65,16 @@ git add .
 Check and verify the values of the variables in variables.tf, qa.tfvars, dev.tfvars, and prod.tfvars files. Ensure to verify the instance_type values, especially.
 
 ## Step 8: Commit and Push Changes
-Commit your changes and push them to your repository.
+Commit your changes with appropriate commit message.
 ```bash
 git commit -m "Initial commit with Terraform files"
+```
+
+Push the commit to your repository.
+```bash
 git push origin main
 ```
+
 
 After pushing changes, monitor the pipeline output in the CircleCI dashboard to ensure successful execution.
 
