@@ -46,7 +46,7 @@ jobs:
           name: Terraform Plan
           command: |
             terraform init
-            terraform plan
+            terraform plan -var-file="${ENV}.tfvars"
 
   terraform_apply:
     docker:

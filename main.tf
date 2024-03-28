@@ -4,8 +4,8 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "tf-states" //your tfstate bucket name 
-    key    = "dev.tfstate"
+    bucket = "tf-states-stream" //your tfstate bucket name 
+    key    = "vijay/dev.tfstate"
     region = "ap-south-1"
   }
 }
@@ -18,9 +18,13 @@ resource "aws_vpc" "my_vpc" {
   }
 }
 
+# availability zones
+data "aws_availability_zones" "available" {}
+
 # Public subnet
 resource "aws_subnet" "subnet-1"{
   vpc_id = aws_vpc.my_vpc.id
+  availability_zone = data.aws_availability_zones.available.names[0]
   cidr_block = "10.0.1.0/24"
   tags = {
     Name = "my_public_subnet"
@@ -115,4 +119,10 @@ resource "aws_s3_bucket" "prv-s3-01" {
     Name = "prvs3-bucket"
     environment = "${var.environment}"
   }
+}
+
+# s3-bucket route table association
+resource "aws_vpc_endpoint_route_table_association" "s3-endpoint-public" {
+  route_table_id  = aws_route_table.public-route.id
+  vpc_endpoint_id = aws_vpc_endpoint.s3-endpoint.id
 }
