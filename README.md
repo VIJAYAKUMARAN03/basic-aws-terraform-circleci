@@ -43,8 +43,9 @@ Link : https://circleci.com/vcs-authorize/
 
 ## Step 4: Configure Environment Variables
 Set the following environment variables in CircleCI for the project:
-- TF_VAR_access_key: AWS access key value
-- TF_VAR_secret_key: AWS secret key value
+- aws_access_key: AWS access key value
+- aws_secret_key: AWS secret key value
+- region: specify the region of AWS-CLI
 - ENV: Choose from dev, prod, or qa to dynamically change Terraform configurations.
 Note: Environment variable names are case-sensitive.
 Refer : https://circleci.com/docs/set-environment-variable/
